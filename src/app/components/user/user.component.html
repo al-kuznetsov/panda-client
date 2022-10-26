@@ -1,21 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" style="color:white;">Управление пользователями</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
-        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Управление пользователями</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link">Добавить <span class="sr-only">(current)</span></a>
-            </li>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Новый пользователь</a>
+          </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input type="search" name="key" id="searchName" class="form-control mr-sm-2"
-                placeholder="Поиск пользователей..." required>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Поиск пользователей..." aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Найти</button>
         </form>
+      </div>
     </div>
-</nav>
+  </nav>
 
 <div class="container">
     <div class="row">
