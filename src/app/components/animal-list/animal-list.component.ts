@@ -4,7 +4,7 @@ import { AnimalService } from 'src/app/services/animal.service';
 
 @Component({
   selector: 'app-animal-list',
-  templateUrl: './animal-list-table.component.html',
+  templateUrl: './animal-list-grid.component.html',
   styleUrls: ['./animal-list.component.css']
 })
 export class AnimalListComponent implements OnInit {
