@@ -9,6 +9,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ru": "src/i18n/messages.ru.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -32,6 +38,9 @@
             ]
           },
           "configurations": {
+            "ru": {
+              "localize": ["ru"]
+            },
             "production": {
               "budgets": [
                 {
@@ -69,6 +78,9 @@
           "configurations": {
             "production": {
               "browserTarget": "panda-client:build:production"
+            },
+            "ru": {
+              "browserTarget": "panda-client:build:ru"
             },
             "development": {
               "browserTarget": "panda-client:build:development"
