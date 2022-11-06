@@ -9,12 +9,20 @@ import { Animal } from '../common/animal';
 })
 export class AnimalService {
 
-  private baseUrl: string = `${environment.apiBaseUrl}${environment.animalsMappingUrl}?size=100`;
+  private baseUrl: string = `${environment.apiBaseUrl}${environment.animalsMappingUrl}`;
 
   constructor(private httpClient: HttpClient) { }
 
-  getAnimalList(): Observable<Animal[]> {
-    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+  getAnimalList(animalTypeCode: string): Observable<Animal[]> {
+    let requestUrl: string;
+
+    if (animalTypeCode.length === 0) {
+      requestUrl = `${this.baseUrl}?size=100`;
+    } else {
+      requestUrl = `${this.baseUrl}/findAllByTypeCode?code=${animalTypeCode}&size=100`;
+    }
+
+    return this.httpClient.get<GetResponse>(requestUrl).pipe(
       map(response => response.content)
     )
   }

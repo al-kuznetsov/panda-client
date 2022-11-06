@@ -10,8 +10,17 @@ import { AnimalListComponent } from './components/animal-list/animal-list.compon
 
 import localeRu from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
 registerLocaleData(localeRu, 'ru');
+
+const routes: Routes = [ // path match creates a NEW instance of component!
+  { path: 'animals/:code', component: AnimalListComponent },
+  { path: 'animals', component: AnimalListComponent },
+  { path: 'users', component: UserListComponent },
+  { path: '', redirectTo: '/animals', pathMatch: 'full' }, // match an empty path
+  { path: '**', redirectTo: '/animals', pathMatch: 'full' } // match anything not matched above
+]
 
 @NgModule({
   declarations: [
@@ -20,6 +29,7 @@ registerLocaleData(localeRu, 'ru');
     AnimalListComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

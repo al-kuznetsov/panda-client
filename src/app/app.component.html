@@ -11,16 +11,16 @@
       <nav class="navbar-sidebar">
         <ul class="list-unstyled navbar-list">
           <li>
-            <a href="#">Books</a>
+            <a routerLink="/animals" routerLinkActive="active-link">Животные</a>
           </li>
           <li>
-            <a href="#">Coffee Mugs</a>
+            <a routerLink="/animals/DOG" routerLinkActive="active-link">Собаки</a>
           </li>
           <li>
-            <a href="#">Mouse Pads</a>
+            <a routerLink="/animals/CAT" routerLinkActive="active-link">Кошки</a>
           </li>
           <li>
-            <a href="#">Luggage Tags</a>
+            <a routerLink="/users" routerLinkActive="active-link">Пользователи</a>
           </li>
         </ul>
       </nav>
@@ -54,7 +54,8 @@
     <!-- END HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
-    <app-animal-list></app-animal-list>
+    <router-outlet></router-outlet>
+    <!-- <app-animal-list></app-animal-list> -->
 
   </div>
 </div>
