@@ -3,20 +3,22 @@
         <div class="container-fluid">
             <div class="row">
 
-                <!-- loop over the collection of products-->
+                <!-- loop over the collection of animals-->
                 <div class="col-md-3" *ngFor="let tempAnimal of animals">
 
-                    <div class="product-box">
-
-                        <a href="#">
-                            <img src="{{ tempAnimal.imageUrl }}" class="img-responsive">
-                        </a>
+                    <div class="animal-box">
+                        <div class="image-container">
+                            <a href="#">
+                                <img src="{{ tempAnimal.imageUrl }}" class="img-responsive">
+                            </a>
+                        </div>
                         <h1>{{ tempAnimal.name }}</h1>
-                        <p>{{ tempAnimal.description }}</p>
-                        <p>{{ tempAnimal.birthDate }}</p>
-                        <p>Создано: {{ tempAnimal.dateCreated | date }}</p>
-                        <p>Последнее обновление: {{ tempAnimal.dateUpdated | date }}</p>
-                        <a href="#" class="primary-btn">Add to cart</a>
+                        <div class="description-text">
+                            {{ tempAnimal.description }}
+                        </div>
+                        <p>Добавлено: {{ tempAnimal.dateCreated | date }}</p>
+                        <p>Обновлено: {{ tempAnimal.dateUpdated | date }}</p>
+                        <a href="#" class="primary-btn">Добавить</a>
                     </div>
                 </div>
 

@@ -563,6 +563,47 @@ input.au-input.au-input-xl{
 
 /* 
  * ----------------------------
+ * Animals List
+ * ----------------------------
+ */
+
+ .animal-box img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.image-container {
+    min-height: 10rem
+}
+
+.description-text {
+    height: 4rem;
+    overflow: hidden;
+    text-overflow: hidden;
+}
+
+.animal-box{
+    margin-bottom:60px
+}
+
+.animal-box h1{
+    font-size:18px;
+    border-bottom:1px solid #ccc;
+    padding-bottom:5px;
+    font-weight:600;
+    padding-top:12px;
+    margin-bottom:7px
+}
+
+.animal-box h2{
+    font-size:15px;
+    padding-bottom:0;
+    font-weight:500;
+    color:#585858
+}
+
+/* 
+ * ----------------------------
  * Shopping Cart Checkout
  * ----------------------------
  */
