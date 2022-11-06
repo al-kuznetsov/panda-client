@@ -580,6 +580,7 @@ input.au-input.au-input-xl{
     height: 4rem;
     overflow: hidden;
     text-overflow: hidden;
+    border-bottom:1px solid #ccc;
 }
 
 .animal-box{
