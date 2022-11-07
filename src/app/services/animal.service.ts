@@ -10,36 +10,41 @@ import { AnimalType } from '../common/animal-type';
 })
 export class AnimalService {
 
-  private baseUrl: string = environment.apiBaseUrl;
-  private animalsMappingUrl: string = environment.animalsMappingUrl;
-  private animalTypesMappingUrl: string = environment.animalTypesMappingUrl;
+  private animalsRequestUrl: string = `${environment.apiBaseUrl}${environment.animalsMappingUrl}`;
+  private animalTypesRequestUrl: string = `${environment.apiBaseUrl}${environment.animalTypesMappingUrl}`;
 
   constructor(private httpClient: HttpClient) { }
 
   getAnimalList(animalTypeCode: string): Observable<Animal[]> {
-    let requestUrl: string = `${this.baseUrl}${this.animalsMappingUrl}`;
+    let requestUrl: string;
 
     if (animalTypeCode.length === 0) {
-      requestUrl = `${requestUrl}?size=100`;
+      requestUrl = `${this.animalsRequestUrl}?size=100`;
     } else {
-      requestUrl = `${requestUrl}/findAllByTypeCode?code=${animalTypeCode}&size=100`;
+      requestUrl = `${this.animalsRequestUrl}/findAllByTypeCode?code=${animalTypeCode}&size=100`;
     }
 
     return this.getAnimals(requestUrl);
   }
 
   searchAnimals(theSearchKey: string): Observable<Animal[]> {
-
-    const requestUrl: string = `${this.baseUrl}${this.animalsMappingUrl}/findAllByNameOrDescriptionContainingIgnoreCase?searchKey=${theSearchKey}`;
+    const requestUrl: string =
+      `${this.animalsRequestUrl}/findAllByNameOrDescriptionContainingIgnoreCase?searchKey=${theSearchKey}`;
 
     return this.getAnimals(requestUrl);
   }
 
   getAnimalTypes(): Observable<AnimalType[]> {
-    let requestUrl: string =
-      `${this.baseUrl}${this.animalTypesMappingUrl}`;
+    const requestUrl: string =
+      `${this.animalTypesRequestUrl}`;
 
     return this.httpClient.get<AnimalType[]>(requestUrl);
+  }
+
+  getAnimal(theAnimalid: number): Observable<Animal> {
+    const requestUrl: string = `${this.animalsRequestUrl}/${theAnimalid}`;
+
+    return this.httpClient.get<Animal>(requestUrl);
   }
 
   private getAnimals(requestUrl: string): Observable<Animal[]> {

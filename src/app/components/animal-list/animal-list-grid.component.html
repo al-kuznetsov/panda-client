@@ -8,17 +8,22 @@
 
                     <div class="animal-box">
                         <div class="image-container">
-                            <a href="#">
+                            <a routerLink="/animal-details/{{ tempAnimal.id }}">
                                 <img src="{{ tempAnimal.imageUrl }}" class="img-responsive">
                             </a>
                         </div>
-                        <h1>{{ tempAnimal.name }}</h1>
+                        <a routerLink="/animal-details/{{ tempAnimal.id }}">
+                            <h1>{{ tempAnimal.name }}</h1>
+                        </a>
                         <div class="description-text">
                             {{ tempAnimal.description }}
                         </div>
+                        <a routerLink="/animal-details/{{ tempAnimal.id }}" routerLinkActive="active-link">
+                            Подробнее
+                        </a>
                         <p>Добавлено: {{ tempAnimal.dateCreated | date }}</p>
                         <p>Обновлено: {{ tempAnimal.dateUpdated | date }}</p>
-                        <a href="#" class="primary-btn">Добавить</a>
+                        <a href="#" class="primary-btn">Добавить себе</a>
                     </div>
                 </div>
 

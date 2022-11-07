@@ -1,0 +1,25 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div>
+                    <img src="{{ animal.imageUrl }}" class="img-responsive" width="200px">
+
+                    <h3>{{ animal.name }}</h3>
+                    <a href="№" class="primary-btn">Добавить себе</a>
+
+                    <h4>Краткое описание</h4>
+                    <p>{{ animal.description }}
+                    </p>
+
+                    <h4>Подробная история</h4>
+                    <p>{{ animal.fullBio }}
+                    </p>
+
+                    <a routerLink="/animals" routerLinkActive="active-link">Обратно к списку животных</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

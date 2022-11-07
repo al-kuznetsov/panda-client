@@ -13,10 +13,12 @@ import { registerLocaleData } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AnimalTypeMenuComponent } from './components/animal-type-menu/animal-type-menu.component';
 import { SearchComponent } from './components/search/search.component';
+import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
 
 registerLocaleData(localeRu, 'ru');
 
 const routes: Routes = [ // path match creates a NEW instance of component!
+  { path: 'animal-details/:id', component: AnimalDetailsComponent },
   { path: 'animal-search/:searchKey', component: AnimalListComponent },
   { path: 'animals/:code', component: AnimalListComponent },
   { path: 'animals', component: AnimalListComponent },
@@ -31,7 +33,8 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     UserListComponent,
     AnimalListComponent,
     AnimalTypeMenuComponent,
-    SearchComponent
+    SearchComponent,
+    AnimalDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
