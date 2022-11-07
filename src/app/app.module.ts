@@ -11,6 +11,7 @@ import { AnimalListComponent } from './components/animal-list/animal-list.compon
 import localeRu from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { AnimalTypeMenuComponent } from './components/animal-type-menu/animal-type-menu.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -26,7 +27,8 @@ const routes: Routes = [ // path match creates a NEW instance of component!
   declarations: [
     AppComponent,
     UserListComponent,
-    AnimalListComponent
+    AnimalListComponent,
+    AnimalTypeMenuComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

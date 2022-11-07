@@ -1,0 +1,7 @@
+<div *ngFor="let tempAnimalType of animalTypes">
+    <li>
+        <a routerLink="/animals/{{ tempAnimalType.code }}" routerLinkActive="active-link">
+            {{ tempAnimalType.name }}
+        </a>
+    </li>
+</div>
