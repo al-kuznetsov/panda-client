@@ -220,8 +220,8 @@ section{
 }
 
 input.au-input.au-input-xl{
-    border-radius:40px!important;
-    margin-right:15px
+    border-radius:10px!important;
+    margin-right:10px
 }
 
 .au-input{
@@ -282,13 +282,14 @@ input.au-input.au-input-xl{
 
 .au-btn-submit{
     position:relative;
+    padding-right: 3px;
     right:0;
-    min-width:95px;
+    min-width:135px;
     color:#fff;
     border:1px solid #205b8d;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
-    border-radius:43px;
+    border-radius:10px;
     background:#205b8d
 }
 

@@ -12,6 +12,7 @@ export class AnimalListComponent implements OnInit {
 
   animals: Animal[] = [];
   currentAnimalTypeCode: string = 'DOG';
+  searchMode: boolean = false;
 
   constructor(private animalService: AnimalService,
     private route: ActivatedRoute) { }
@@ -23,6 +24,27 @@ export class AnimalListComponent implements OnInit {
   }
 
   listAnimals() {
+
+    this.searchMode = this.route.snapshot.paramMap.has('searchKey');
+
+    if (this.searchMode) {
+      this.handleSearchAnimals();
+    } else {
+      this.handleListAnimals();
+    }
+  }
+
+  handleSearchAnimals() {
+    const theSearchKey: string = this.route.snapshot.paramMap.get('searchKey')!;
+
+    this.animalService.searchAnimals(theSearchKey).subscribe(
+      data => {
+        this.animals = data;
+      }
+    )
+  }
+
+  handleListAnimals() {
 
     // check if animal type "code" parameter is available
     const hasAnimalTypeCode: boolean = this.route.snapshot.paramMap.has('code');

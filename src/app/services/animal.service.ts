@@ -25,16 +25,27 @@ export class AnimalService {
       requestUrl = `${requestUrl}/findAllByTypeCode?code=${animalTypeCode}&size=100`;
     }
 
-    return this.httpClient.get<GetResponse>(requestUrl).pipe(
-      map(response => response.content)
-    )
+    return this.getAnimals(requestUrl);
+  }
+
+  searchAnimals(theSearchKey: string): Observable<Animal[]> {
+
+    const requestUrl: string = `${this.baseUrl}${this.animalsMappingUrl}/findAllByNameOrDescriptionContainingIgnoreCase?searchKey=${theSearchKey}`;
+
+    return this.getAnimals(requestUrl);
   }
 
   getAnimalTypes(): Observable<AnimalType[]> {
     let requestUrl: string =
-      `${this.baseUrl}${environment.animalTypesMappingUrl}`;
+      `${this.baseUrl}${this.animalTypesMappingUrl}`;
 
     return this.httpClient.get<AnimalType[]>(requestUrl);
+  }
+
+  private getAnimals(requestUrl: string): Observable<Animal[]> {
+    return this.httpClient.get<GetResponse>(requestUrl).pipe(
+      map(response => response.content)
+    );
   }
 }
 
