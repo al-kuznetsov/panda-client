@@ -23,12 +23,14 @@
                         </a>
                         <p>Добавлено: {{ tempAnimal.dateCreated | date }}</p>
                         <p>Обновлено: {{ tempAnimal.dateUpdated | date }}</p>
-                        <a href="#" class="primary-btn">Добавить себе</a>
+                        <button (click)="addToCareCart(tempAnimal)" class="btn btn-primary btn-sm">
+                            Добавить себе
+                        </button>
                     </div>
                 </div>
 
                 <!-- if animals empty then display a message -->
-                <div *ngIf="animals?.length === 0" class="alert-warning col-md-12" role="alert">
+                <div *ngIf="animals?.length == 0" class="alert-warning col-md-12" role="alert">
                     No animals found.
                 </div>
 

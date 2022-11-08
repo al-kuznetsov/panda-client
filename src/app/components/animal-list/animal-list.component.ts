@@ -97,6 +97,12 @@ export class AnimalListComponent implements OnInit {
     this.listAnimals();
   }
 
+  addToCareCart(animal: Animal) {
+    console.log(`Adding to care cart: ${animal.name}, ${animal.description}`);
+
+    // TODO ... do the real work
+  }
+
   private processResult() {
     return (data: any) => {
       this.animals = data.content;

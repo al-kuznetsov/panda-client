@@ -255,7 +255,7 @@ input.au-input.au-input-xl{
     background:#205b8d;
     line-height:43px;
     color:#fff;
-    border-radius:30px;
+    border-radius:10px;
     border:1px solid #0da8e4;
     float:left;
     margin-top:7px;
@@ -267,8 +267,8 @@ input.au-input.au-input-xl{
     background:#fff;
     padding:0 13px;
     color:#000;
-    border-top-right-radius:20px;
-    border-bottom-right-radius:20px;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
     margin-left:11px
 }
 
@@ -1071,7 +1071,7 @@ footer ul li{
         background:#205b8d;
         line-height:30px;
         color:#fff;
-        border-radius:30px;
+        border-radius:10px;
         border:1px solid #205b8d;
         float:left;
         margin-top:9px;

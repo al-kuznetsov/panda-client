@@ -15,6 +15,7 @@ import { AnimalTypeMenuComponent } from './components/animal-type-menu/animal-ty
 import { SearchComponent } from './components/search/search.component';
 import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CareCartComponent } from './components/care-cart/care-cart.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -35,7 +36,8 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     AnimalListComponent,
     AnimalTypeMenuComponent,
     SearchComponent,
-    AnimalDetailsComponent
+    AnimalDetailsComponent,
+    CareCartComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

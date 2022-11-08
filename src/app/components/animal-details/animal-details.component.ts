@@ -10,7 +10,7 @@ import { AnimalService } from 'src/app/services/animal.service';
 })
 export class AnimalDetailsComponent implements OnInit {
 
-  animal!: Animal;
+  animal: Animal = new Animal();
 
   constructor(private animalService: AnimalService, private route: ActivatedRoute) { }
 
