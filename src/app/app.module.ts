@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnimalTypeMenuComponent } from './components/animal-type-menu/animal-type-menu.component';
 import { SearchComponent } from './components/search/search.component';
 import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -41,7 +42,8 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'ru' }], // to make pipes take ru locale
   bootstrap: [AppComponent]

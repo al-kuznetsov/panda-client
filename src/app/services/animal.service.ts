@@ -15,21 +15,25 @@ export class AnimalService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAnimalList(animalTypeCode: string): Observable<Animal[]> {
+  getAnimalListPaginate(thePage: number, thePageSize: number, animalTypeCode: string)
+    : Observable<GetResponseAnimals> {
     let requestUrl: string;
+    const pagingParams: string = `page=${thePage}&size=${thePageSize}`;
 
     if (animalTypeCode.length === 0) {
-      requestUrl = `${this.animalsRequestUrl}?size=100`;
+      requestUrl = `${this.animalsRequestUrl}?${pagingParams}`;
     } else {
-      requestUrl = `${this.animalsRequestUrl}/findAllByTypeCode?code=${animalTypeCode}&size=100`;
+      requestUrl = `${this.animalsRequestUrl}/findAllByTypeCode?code=${animalTypeCode}&${pagingParams}`;
     }
 
     return this.getAnimals(requestUrl);
   }
 
-  searchAnimals(theSearchKey: string): Observable<Animal[]> {
+  searchAnimalsPaginate(thePage: number, thePageSize: number, theSearchKey: string)
+    : Observable<GetResponseAnimals> {
     const requestUrl: string =
-      `${this.animalsRequestUrl}/findAllByNameOrDescriptionContainingIgnoreCase?searchKey=${theSearchKey}`;
+      `${this.animalsRequestUrl}/findAllByNameOrDescriptionContainingIgnoreCase`
+      + `?searchKey=${theSearchKey}&page=${thePage}&size=${thePageSize}`;
 
     return this.getAnimals(requestUrl);
   }
@@ -47,13 +51,17 @@ export class AnimalService {
     return this.httpClient.get<Animal>(requestUrl);
   }
 
-  private getAnimals(requestUrl: string): Observable<Animal[]> {
-    return this.httpClient.get<GetResponse>(requestUrl).pipe(
-      map(response => response.content)
+  private getAnimals(requestUrl: string): Observable<GetResponseAnimals> {
+    return this.httpClient.get<GetResponseAnimals>(requestUrl).pipe(
+      map(response => response)
     );
   }
 }
 
-interface GetResponse {
-  content: Animal[];
+interface GetResponseAnimals {
+  content: Animal[],
+  totalPages: number,
+  totalElements: number,
+  size: number,
+  number: number
 }

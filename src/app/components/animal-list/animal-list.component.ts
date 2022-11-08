@@ -11,8 +11,15 @@ import { AnimalService } from 'src/app/services/animal.service';
 export class AnimalListComponent implements OnInit {
 
   animals: Animal[] = [];
-  currentAnimalTypeCode: string = 'DOG';
+  currentAnimalTypeCode: string = '';
+  previousAnimalTypeCode: string = '';
   searchMode: boolean = false;
+
+  thePageNumber: number = 1;
+  thePageSize: number = 5;
+  theTotalElements: number = 0;
+
+  previousSearchKey: string = '';
 
   constructor(private animalService: AnimalService,
     private route: ActivatedRoute) { }
@@ -37,11 +44,21 @@ export class AnimalListComponent implements OnInit {
   handleSearchAnimals() {
     const theSearchKey: string = this.route.snapshot.paramMap.get('searchKey')!;
 
-    this.animalService.searchAnimals(theSearchKey).subscribe(
-      data => {
-        this.animals = data;
-      }
-    )
+    // if we have a different searchKey than previous, set thePageNumber to 1
+    if (this.previousSearchKey != theSearchKey) {
+      this.thePageNumber = 1;
+    }
+
+    this.previousSearchKey = theSearchKey;
+
+    console.log(`theSearchKey=${theSearchKey}, thePageNumber=${this.thePageNumber}`);
+
+    // page must be decremented because it is 0-based in Spring Boot
+    this.animalService.searchAnimalsPaginate(
+      this.thePageNumber - 1, this.thePageSize, theSearchKey)
+      .subscribe(
+        this.processResult()
+      )
   }
 
   handleListAnimals() {
@@ -56,11 +73,37 @@ export class AnimalListComponent implements OnInit {
       this.currentAnimalTypeCode = '';
     }
 
-    this.animalService.getAnimalList(this.currentAnimalTypeCode).subscribe(
-      data => {
-        this.animals = data;
-      }
-    )
+    // Must check if we have a different animalType than previous
+    // Note: Angular will reuse a component if it is currently being viewed
+    // if we have a different type code than previous, set thePageNumber back to 1
+    if (this.previousAnimalTypeCode != this.currentAnimalTypeCode) {
+      this.thePageNumber = 1;
+    }
+
+    this.previousAnimalTypeCode = this.currentAnimalTypeCode;
+
+    console.log(`currentAnimalTypeCode=${this.currentAnimalTypeCode}, thePageNumber=${this.thePageNumber}`);
+
+    this.animalService.getAnimalListPaginate(
+      this.thePageNumber - 1, this.thePageSize, this.currentAnimalTypeCode)
+      .subscribe(
+        this.processResult()
+      )
+  }
+
+  updatePageSize(pageSize: string) {
+    this.thePageSize = +pageSize;
+    this.thePageNumber = 1;
+    this.listAnimals();
+  }
+
+  private processResult() {
+    return (data: any) => {
+      this.animals = data.content;
+      this.thePageNumber = data.number + 1;
+      this.thePageSize = data.size;
+      this.theTotalElements = data.totalElements;
+    }
   }
 
 }
