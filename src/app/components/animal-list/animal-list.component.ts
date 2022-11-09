@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Animal } from 'src/app/common/animal';
 import { AnimalItem } from 'src/app/common/animal-item';
+import { AnimalType } from 'src/app/common/animal-type';
 import { AnimalService } from 'src/app/services/animal.service';
 import { CareCartService } from 'src/app/services/care-cart.service';
+import { MapperService } from 'src/app/services/mapper.service';
 
 @Component({
   selector: 'app-animal-list',
@@ -25,7 +27,8 @@ export class AnimalListComponent implements OnInit {
 
   constructor(private animalService: AnimalService,
     private route: ActivatedRoute,
-    private careCartService: CareCartService) { }
+    private careCartService: CareCartService,
+    private mapperService: MapperService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -110,11 +113,10 @@ export class AnimalListComponent implements OnInit {
 
   private processResult() {
     return (data: any) => {
-      this.animals = data.content;
+      this.animals = data.content.map((a: any) => this.mapperService.mapAnimal(a));
       this.thePageNumber = data.number + 1;
       this.thePageSize = data.size;
       this.theTotalElements = data.totalElements;
     }
   }
-
 }

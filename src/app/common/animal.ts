@@ -1,3 +1,5 @@
+import { AnimalType } from "./animal-type";
+
 export class Animal {
 
     constructor(
@@ -9,6 +11,7 @@ export class Animal {
         public imageUrl?: string,
         public active?: boolean,
         public dateCreated?: Date,
-        public dateUpdated?: Date
+        public dateUpdated?: Date,
+        public animalType?: AnimalType
     ) { }
 }

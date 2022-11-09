@@ -15,6 +15,7 @@
                         <a routerLink="/animal-details/{{ tempAnimal.id }}">
                             <h1>{{ tempAnimal.name }}</h1>
                         </a>
+                        <h2> Тип: {{ tempAnimal.animalType?.name }} </h2>
                         <div class="description-text">
                             {{ tempAnimal.description }}
                         </div>
