@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Animal } from 'src/app/common/animal';
+import { AnimalItem } from 'src/app/common/animal-item';
 import { AnimalService } from 'src/app/services/animal.service';
+import { CareCartService } from 'src/app/services/care-cart.service';
 
 @Component({
   selector: 'app-animal-list',
@@ -22,7 +24,8 @@ export class AnimalListComponent implements OnInit {
   previousSearchKey: string = '';
 
   constructor(private animalService: AnimalService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private careCartService: CareCartService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -100,7 +103,9 @@ export class AnimalListComponent implements OnInit {
   addToCareCart(animal: Animal) {
     console.log(`Adding to care cart: ${animal.name}, ${animal.description}`);
 
-    // TODO ... do the real work
+    const animalItem: AnimalItem = new AnimalItem(animal);
+
+    this.careCartService.addToCart(animalItem);
   }
 
   private processResult() {

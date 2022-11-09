@@ -7,7 +7,9 @@
                     <img src="{{ animal.imageUrl }}" class="img-responsive" width="200px">
 
                     <h3>{{ animal.name }}</h3>
-                    <a href="№" class="primary-btn">Добавить себе</a>
+                    <button (click)="addToCareCart(animal)" class="btn btn-primary btn-sm">
+                        Добавить себе
+                    </button>
 
                     <h4>Краткое описание</h4>
                     <p>{{ animal.description }}
