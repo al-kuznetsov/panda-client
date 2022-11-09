@@ -17,6 +17,11 @@ export class CareCartService {
 
     this.animalItems.push(theAnimalItem);
 
+    this.computeCartTotals();
+  }
+
+  computeCartTotals() {
+
     let totalQuantityValue: number = 0;
     this.animalItems.forEach(() => totalQuantityValue++);
 

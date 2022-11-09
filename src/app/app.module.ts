@@ -16,10 +16,12 @@ import { SearchComponent } from './components/search/search.component';
 import { AnimalDetailsComponent } from './components/animal-details/animal-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CareCartComponent } from './components/care-cart/care-cart.component';
+import { CareCartDetailsComponent } from './components/care-cart-details/care-cart-details.component';
 
 registerLocaleData(localeRu, 'ru');
 
 const routes: Routes = [ // path match creates a NEW instance of component!
+  { path: 'care-cart-details', component: CareCartDetailsComponent },
   { path: 'animal-details/:id', component: AnimalDetailsComponent },
   { path: 'animal-search/:searchKey', component: AnimalListComponent },
   { path: 'animals/:code', component: AnimalListComponent },
@@ -37,7 +39,8 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     AnimalTypeMenuComponent,
     SearchComponent,
     AnimalDetailsComponent,
-    CareCartComponent
+    CareCartComponent,
+    CareCartDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

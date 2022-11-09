@@ -1,0 +1,40 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <table class="table table-bordered">
+                <tr>
+                    <th width="20%">Фото</th>
+                    <th width="50%">Детали</th>
+                    <th width="30%"></th>
+                </tr>
+
+                <tr *ngFor="let AnimalItem of animalItems">
+                    <td>
+                        <img src="{{ AnimalItem.imageUrl }}" class="img-responsive" width="150px" />
+                    </td>
+                    <td>
+                        <p>{{ AnimalItem.name }}</p>
+                        <p>{{ AnimalItem.description }}</p>
+                    </td>
+                    <td>
+                        <div class="items">
+                            <label>Значение критерия:</label> {{ AnimalItem.criteria }}
+                        </div>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"></td>
+                    <td style="font-weight: bold">
+                        <p>Количество животных: {{ totalQuantity }}</p>
+                        <p>Максимальное количество: 5</p>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+</div>
