@@ -32,4 +32,9 @@ export class CareCartDetailsComponent implements OnInit {
     this.careCartService.computeCartTotals();
   }
 
+  remove(animalItem: AnimalItem) {
+    
+    this.careCartService.remove(animalItem);
+  }
+
 }

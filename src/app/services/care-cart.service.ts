@@ -20,6 +20,7 @@ export class CareCartService {
     this.computeCartTotals();
   }
 
+  // Note: this method must be called to emit Subjects value change events
   computeCartTotals() {
 
     let totalQuantityValue: number = 0;
@@ -38,5 +39,19 @@ export class CareCartService {
 
     console.log(`totalQuantity: ${totalQuantityValue}`);
     console.log('----');
+  }
+
+  remove(animalItem: AnimalItem) {
+
+    const index: number = this.animalItems.findIndex(
+      tempAnimalItem => tempAnimalItem.id === animalItem.id
+    );
+
+    if (index > -1) {
+      this.animalItems.splice(index, 1);
+
+      this.computeCartTotals();
+    }
+
   }
 }

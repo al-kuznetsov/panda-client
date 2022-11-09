@@ -727,6 +727,7 @@ select{
 .table{
     margin:0
 }
+
 table.table.table-bordered{
     border:1px solid #ccc;
     background:#fff
@@ -784,6 +785,13 @@ table.table.table-bordered th{
     background-color:#0da8e4!important;
     border-color:#0da8e4!important
 }
+
+.btn-primary{
+    color:#fff;
+    background-color:#0da8e4!important;
+    border-color:#0da8e4!important
+}
+
 a.primary-btn{
     background:#05143f;
     padding:7px 20px;
