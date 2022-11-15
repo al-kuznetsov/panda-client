@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Animal } from 'src/app/common/animal';
 import { AnimalItem } from 'src/app/common/animal-item';
-import { AnimalType } from 'src/app/common/animal-type';
 import { AnimalService } from 'src/app/services/animal.service';
 import { CareCartService } from 'src/app/services/care-cart.service';
 import { MapperService } from 'src/app/services/mapper.service';
@@ -14,13 +13,13 @@ import { MapperService } from 'src/app/services/mapper.service';
 })
 export class AnimalListComponent implements OnInit {
 
-  animals: Animal[] = [];
+  animalItems: AnimalItem[] = [];
   currentAnimalTypeCode: string = '';
   previousAnimalTypeCode: string = '';
   searchMode: boolean = false;
 
   thePageNumber: number = 1;
-  thePageSize: number = 5;
+  thePageSize: number = 12;
   theTotalElements: number = 0;
 
   previousSearchKey: string = '';
@@ -103,17 +102,21 @@ export class AnimalListComponent implements OnInit {
     this.listAnimals();
   }
 
-  addToCareCart(animal: Animal) {
-    console.log(`Adding to care cart: ${animal.name}, ${animal.description}`);
+  addToCareCart(animalItem: AnimalItem) {
+    console.log(`Adding to care cart: ${animalItem.name}, ${animalItem.description}`);
 
-    const animalItem: AnimalItem = new AnimalItem(animal);
+    // Update AddToCart button visibility
+    const theAnimalItem: AnimalItem = this.animalItems.find(
+      item => item.id === animalItem.id
+    )!;
+    theAnimalItem.isAddToCartButtonDisabled = true;
 
-    this.careCartService.addToCart(animalItem);
+    this.careCartService.addToCareCart(animalItem);
   }
 
   private processResult() {
     return (data: any) => {
-      this.animals = data.content.map((a: any) => this.mapperService.mapAnimal(a));
+      this.animalItems = data.content.map((a: any) => this.mapperService.mapAnimalItem(a));
       this.thePageNumber = data.number + 1;
       this.thePageSize = data.size;
       this.theTotalElements = data.totalElements;

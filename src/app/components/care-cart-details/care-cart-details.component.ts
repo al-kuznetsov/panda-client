@@ -29,7 +29,7 @@ export class CareCartDetailsComponent implements OnInit {
     );
 
     // compute cart totals to receive updated info form Subjects
-    this.careCartService.computeCartTotals();
+    this.careCartService.computeCareCartTotals();
   }
 
   remove(animalItem: AnimalItem) {

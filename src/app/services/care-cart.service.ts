@@ -13,15 +13,15 @@ export class CareCartService {
 
   constructor() { }
 
-  addToCart(theAnimalItem: AnimalItem) {
+  addToCareCart(theAnimalItem: AnimalItem) {
 
     this.animalItems.push(theAnimalItem);
 
-    this.computeCartTotals();
+    this.computeCareCartTotals();
   }
 
   // Note: this method must be called to emit Subjects value change events
-  computeCartTotals() {
+  computeCareCartTotals() {
 
     let totalQuantityValue: number = 0;
     this.animalItems.forEach(() => totalQuantityValue++);
@@ -50,7 +50,8 @@ export class CareCartService {
     if (index > -1) {
       this.animalItems.splice(index, 1);
 
-      this.computeCartTotals();
+      animalItem.isAddToCartButtonDisabled = false;
+      this.computeCareCartTotals();
     }
 
   }

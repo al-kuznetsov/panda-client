@@ -4,6 +4,7 @@ import { Animal } from 'src/app/common/animal';
 import { AnimalItem } from 'src/app/common/animal-item';
 import { AnimalService } from 'src/app/services/animal.service';
 import { CareCartService } from 'src/app/services/care-cart.service';
+import { MapperService } from 'src/app/services/mapper.service';
 
 @Component({
   selector: 'app-animal-details',
@@ -12,11 +13,12 @@ import { CareCartService } from 'src/app/services/care-cart.service';
 })
 export class AnimalDetailsComponent implements OnInit {
 
-  animal: Animal = new Animal();
+  animalItem: AnimalItem = new AnimalItem(new Animal());
 
   constructor(private animalService: AnimalService, 
     private route: ActivatedRoute, 
-    private careCartService: CareCartService) { }
+    private careCartService: CareCartService,
+    private mapperService: MapperService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -29,17 +31,16 @@ export class AnimalDetailsComponent implements OnInit {
 
     this.animalService.getAnimal(theAnimalId).subscribe(
       data => {
-        this.animal = data;
+        this.animalItem = new AnimalItem(data);
       }
     )
   }
 
-  addToCareCart(animal: Animal) {
-    console.log(`Adding to care cart: ${animal.name}, ${animal.description}`);
+  addToCareCart(animalItem: AnimalItem) {
+    console.log(`Adding to care cart: ${animalItem.name}, ${animalItem.description}`);
 
-    const animalItem: AnimalItem = new AnimalItem(animal);
-
-    this.careCartService.addToCart(animalItem);
+    this.animalItem.isAddToCartButtonDisabled = true;
+    this.careCartService.addToCareCart(animalItem);
   }
 
 }

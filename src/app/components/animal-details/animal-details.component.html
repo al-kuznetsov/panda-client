@@ -4,22 +4,25 @@
             <div class="row">
 
                 <div>
-                    <img src="{{ animal.imageUrl }}" class="img-responsive" width="200px">
+                    <img src="{{ animalItem.imageUrl }}" class="img-responsive" width="200px">
 
-                    <h3>{{ animal.name }}</h3>
-                    <button (click)="addToCareCart(animal)" class="btn btn-primary btn-sm">
+                    <h3>{{ animalItem.name }}</h3>
+                    <button class="btn btn-primary btn-sm" [disabled]="animalItem.isAddToCartButtonDisabled"
+                        (click)="addToCareCart(animalItem)">
                         Добавить себе
                     </button>
 
                     <h4>Краткое описание</h4>
-                    <p>{{ animal.description }}
+                    <p>{{ animalItem.description }}
                     </p>
 
                     <h4>Подробная история</h4>
-                    <p>{{ animal.fullBio }}
+                    <p>{{ animalItem.fullBio }}
                     </p>
 
-                    <a routerLink="/animals" routerLinkActive="active-link">Обратно к списку животных</a>
+                    <a routerLink="/animals" routerLinkActive="active-link">
+                        Обратно к списку животных
+                    </a>
                 </div>
             </div>
         </div>

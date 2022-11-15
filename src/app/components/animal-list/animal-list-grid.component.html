@@ -4,35 +4,37 @@
             <div class="row">
 
                 <!-- loop over the collection of animals-->
-                <div class="col-md-3" *ngFor="let tempAnimal of animals">
+                <div class="col-md-3" *ngFor="let tempAnimalItem of animalItems">
 
                     <div class="animal-box">
                         <div class="image-container">
-                            <a routerLink="/animal-details/{{ tempAnimal.id }}">
-                                <img src="{{ tempAnimal.imageUrl }}" class="img-responsive">
+                            <a routerLink="/animal-details/{{ tempAnimalItem.id }}">
+                                <img src="{{ tempAnimalItem.imageUrl }}" class="img-responsive">
                             </a>
                         </div>
-                        <a routerLink="/animal-details/{{ tempAnimal.id }}">
-                            <h1>{{ tempAnimal.name }}</h1>
+                        <a routerLink="/animal-details/{{ tempAnimalItem.id }}">
+                            <h1>{{ tempAnimalItem.name }}</h1>
                         </a>
-                        <h2> Тип: {{ tempAnimal.animalType?.name }} </h2>
+                        <h2> Тип: {{ tempAnimalItem.animalTypeName }} </h2>
                         <div class="description-text">
-                            {{ tempAnimal.description }}
+                            {{ tempAnimalItem.description }}
                         </div>
-                        <a routerLink="/animal-details/{{ tempAnimal.id }}" routerLinkActive="active-link">
+                        <a routerLink="/animal-details/{{ tempAnimalItem.id }}" routerLinkActive="active-link">
                             Подробнее
                         </a>
-                        <p>Добавлено: {{ tempAnimal.dateCreated | date }}</p>
-                        <p>Обновлено: {{ tempAnimal.dateUpdated | date }}</p>
-                        <button (click)="addToCareCart(tempAnimal)" class="btn btn-primary btn-sm">
+                        <p>Добавлено: {{ tempAnimalItem.dateCreated | date }}</p>
+                        <p>Обновлено: {{ tempAnimalItem.dateUpdated | date }}</p>
+                        <button class="btn btn-primary btn-sm"
+                            [disabled]="tempAnimalItem.isAddToCartButtonDisabled"
+                            (click)="addToCareCart(tempAnimalItem)">
                             Добавить себе
                         </button>
                     </div>
                 </div>
 
                 <!-- if animals empty then display a message -->
-                <div *ngIf="animals?.length == 0" class="alert-warning col-md-12" role="alert">
-                    No animals found.
+                <div *ngIf="animalItems?.length == 0" class="alert-warning col-md-12" role="alert">
+                    Животные не найдены
                 </div>
 
             </div>
@@ -58,10 +60,10 @@
                                 <span class="mr-2">Всего на странице: </span>
 
                                 <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
-                                    <option selected="true">5</option>
-                                    <option>10</option>
-                                    <option>20</option>
-                                    <option>50</option>
+                                    <option selected="true">12</option>
+                                    <option>12</option>
+                                    <option>24</option>
+                                    <option>48</option>
                                 </select>
                             </div>
 
