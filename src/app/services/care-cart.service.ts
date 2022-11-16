@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AnimalItem } from '../common/animal-item';
 
 @Injectable({
@@ -10,12 +11,17 @@ export class CareCartService {
   animalItems: AnimalItem[] = [];
 
   totalQuantity: Subject<number> = new Subject<number>();
+  maxNumberOfAnimalItems: number = environment.maxNumberOfAnimalItemsInCareCart;
 
   constructor() { }
 
   addToCareCart(theAnimalItem: AnimalItem) {
 
-    this.animalItems.push(theAnimalItem);
+    if (this.animalItems.length === this.maxNumberOfAnimalItems) {
+      alert(`Количество добавленных животных не может превышать ${this.maxNumberOfAnimalItems}`);
+    } else {
+      this.animalItems.push(theAnimalItem);
+    }
 
     this.computeCareCartTotals();
   }
