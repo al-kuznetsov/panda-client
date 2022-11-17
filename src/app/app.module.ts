@@ -17,6 +17,7 @@ import { AnimalDetailsComponent } from './components/animal-details/animal-detai
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CareCartComponent } from './components/care-cart/care-cart.component';
 import { CareCartDetailsComponent } from './components/care-cart-details/care-cart-details.component';
+import { SimpleErrorModalComponent } from './components/error/modals/simple-error-modal/simple-error-modal.component';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -40,7 +41,8 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     SearchComponent,
     AnimalDetailsComponent,
     CareCartComponent,
-    CareCartDetailsComponent
+    CareCartDetailsComponent,
+    SimpleErrorModalComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

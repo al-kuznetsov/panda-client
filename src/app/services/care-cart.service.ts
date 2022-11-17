@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AnimalItem } from '../common/animal-item';
+import { SimpleErrorModalComponent } from '../components/error/modals/simple-error-modal/simple-error-modal.component';
+import { Messages } from '../constant/messages';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +16,13 @@ export class CareCartService {
   totalQuantity: Subject<number> = new Subject<number>();
   maxNumberOfAnimalItems: number = environment.maxNumberOfAnimalItemsInCareCart;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   addToCareCart(theAnimalItem: AnimalItem) {
 
     if (this.animalItems.length === this.maxNumberOfAnimalItems) {
-      alert(`Количество добавленных животных не может превышать ${this.maxNumberOfAnimalItems}`);
+      const errorMessage = `Количество добавленных животных не может превышать ${this.maxNumberOfAnimalItems}`;
+      this.showErrorModal(Messages.errorModalTitle, errorMessage);
     } else {
       this.animalItems.push(theAnimalItem);
     }
@@ -59,6 +63,19 @@ export class CareCartService {
       animalItem.isAddToCartButtonDisabled = false;
       this.computeCareCartTotals();
     }
+  }
 
+  private showErrorModal(errorTitle: string, errorMessage: string) {
+    // Количество добавленных животных не может превышать ${this.maxNumberOfAnimalItems}
+    const modalRef = this.modalService.open(SimpleErrorModalComponent);
+    // pass info to the modal
+    modalRef.componentInstance.theModalTitle = errorTitle;
+    modalRef.componentInstance.theErrorMessage = errorMessage;
+
+    modalRef.result.then(
+      result => console.log(result)
+    ).catch(
+      error => console.log(error)
+    );
   }
 }

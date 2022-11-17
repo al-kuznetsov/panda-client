@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Animal } from 'src/app/common/animal';
 import { AnimalItem } from 'src/app/common/animal-item';
 import { AnimalService } from 'src/app/services/animal.service';
 import { CareCartService } from 'src/app/services/care-cart.service';
