@@ -1,3 +1,4 @@
+import { AnimalIndicators } from "./animal-indicators";
 import { AnimalType } from "./animal-type";
 
 export class Animal {
@@ -12,6 +13,7 @@ export class Animal {
         public active?: boolean,
         public dateCreated?: Date,
         public dateUpdated?: Date,
-        public animalType?: AnimalType
+        public animalType?: AnimalType,
+        public animalIndicators?: AnimalIndicators
     ) { }
 }

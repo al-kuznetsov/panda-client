@@ -9,20 +9,21 @@
                     <th width="30%"></th>
                 </tr>
 
-                <tr *ngFor="let AnimalItem of animalItems">
+                <tr *ngFor="let tempAnimalItem of animalItems">
                     <td>
-                        <img src="{{ AnimalItem.imageUrl }}" class="img-responsive" width="150px" />
+                        <img src="{{ tempAnimalItem.imageUrl }}" class="img-responsive" width="150px" />
                     </td>
                     <td>
-                        <p>{{ AnimalItem.name }}</p>
-                        <p>{{ AnimalItem.description }}</p>
+                        <p>{{ tempAnimalItem.id }}</p>
+                        <p>{{ tempAnimalItem.name }}</p>
+                        <p>{{ tempAnimalItem.description }}</p>
                     </td>
                     <td>
                         <div class="items">
-                            <label>Значение критерия:</label> {{ AnimalItem.criteria }}
+                            <label>Значение критерия:</label> {{ tempAnimalItem.criteria }}
                         </div>
 
-                        <button (click)="remove(AnimalItem)" class="btn btn-primary btn-sm mt-2">
+                        <button (click)="remove(tempAnimalItem)" class="btn btn-primary btn-sm mt-2">
                             Удалить
                         </button>
 

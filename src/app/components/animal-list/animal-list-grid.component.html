@@ -24,6 +24,7 @@
                         </a>
                         <p>Добавлено: {{ tempAnimalItem.dateCreated | date }}</p>
                         <p>Обновлено: {{ tempAnimalItem.dateUpdated | date }}</p>
+                        <p>Уровень сознания: {{ tempAnimalItem.animalIndicators.consciousnessLevel }}</p>
                         <button class="btn btn-primary btn-sm"
                             [disabled]="tempAnimalItem.isAddToCartButtonDisabled"
                             (click)="addToCareCart(tempAnimalItem)">

@@ -1,4 +1,5 @@
 import { Animal } from "./animal";
+import { AnimalIndicators } from "./animal-indicators";
 
 export class AnimalItem {
 
@@ -9,6 +10,7 @@ export class AnimalItem {
     imageUrl: string;
     dateCreated: Date;
     dateUpdated: Date;
+    animalIndicators: AnimalIndicators;
 
     animalTypeName: string;
 
@@ -23,10 +25,11 @@ export class AnimalItem {
         this.imageUrl = animal.imageUrl!;
         this.dateCreated = animal.dateCreated!;
         this.dateUpdated = animal.dateUpdated!;
+        this.animalIndicators = animal.animalIndicators!;
 
         this.animalTypeName = animal.animalType?.name!;
 
-        this.criteria = 1;
+        this.criteria = 0;
         this.isAddToCartButtonDisabled = false;
     }
 
