@@ -25,6 +25,7 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 registerLocaleData(localeRu, 'ru');
 
 const routes: Routes = [ // path match creates a NEW instance of component!
+  { path: 'animal-criteria-report', component: AnimalCriteriaReportComponent },
   { path: 'animal-form', component: AnimalFormComponent },
   { path: 'user-form', component: UserFormComponent },
   { path: 'care-cart-details', component: CareCartDetailsComponent },

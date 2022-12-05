@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimalItem } from 'src/app/common/animal-item';
 
 @Component({
   selector: 'app-animal-criteria-report',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./animal-criteria-report.component.css']
 })
 export class AnimalCriteriaReportComponent implements OnInit {
+
+  animalItems: AnimalItem[] = [];
+  totalQuantity: number = 0;
 
   constructor() { }
 
