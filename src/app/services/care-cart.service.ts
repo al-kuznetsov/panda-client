@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AnimalItem } from '../common/animal-item';
 import { SimpleErrorModalComponent } from '../components/error/modals/simple-error-modal/simple-error-modal.component';
@@ -13,7 +13,7 @@ export class CareCartService {
 
   animalItems: AnimalItem[] = [];
 
-  totalQuantity: Subject<number> = new Subject<number>();
+  totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
   maxNumberOfAnimalItems: number = environment.maxNumberOfAnimalItemsInCareCart;
 
   constructor(private modalService: NgbModal) { }

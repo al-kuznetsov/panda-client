@@ -3,6 +3,22 @@
         <div class="container-fluid">
             <h3>Отчет по оценке состояния животных</h3>
 
+            <table class="table table-bordered">
+                <tr>
+                    <th>Фото</th>
+                    <th>Имя</th>
+                    <th>Описание</th>
+                </tr>
+
+                <tr *ngFor="let tempAnimalItem of animalItems">
+                    <td>
+                        <img src="{{ tempAnimalItem.imageUrl }}" class="img-responsive" width="150px" />
+                    </td>
+                    <td>{{ tempAnimalItem.name }}</td>
+                    <td>{{ tempAnimalItem.description }}</td>
+                </tr>
+              
+            </table>
 
         </div>
     </div>
