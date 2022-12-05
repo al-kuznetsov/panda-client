@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AnimalType } from 'src/app/common/animal-type';
+import { AnimalService } from 'src/app/services/animal.service';
 
 @Component({
   selector: 'app-animal-form',
@@ -9,11 +11,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class AnimalFormComponent implements OnInit {
 
   animalFormGroup!: FormGroup;
+  animalTypes: AnimalType[] = [];
 
   // Inject the form builder here
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private animalService: AnimalService) { }
 
   ngOnInit(): void {
+    // Get data for drop-down lists
+    this.listAnimalTypes();
 
     // Use the form builder to build the form
     this.animalFormGroup = this.formBuilder.group({
@@ -21,9 +27,19 @@ export class AnimalFormComponent implements OnInit {
         name: [''],
         birthDate: [''],
         description: [''],
-        fullBio: ['']
+        fullBio: [''],
+        active: { value: true, disabled: true },
+        animalType: [{} as AnimalType]
       })
     })
+  }
+
+  listAnimalTypes() {
+    this.animalService.getAnimalTypes().subscribe(
+      data => {
+        this.animalTypes = data;
+      }
+    )
   }
 
   // Define method called when submit button is clicked

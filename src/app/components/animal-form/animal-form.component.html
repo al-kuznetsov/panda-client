@@ -1,7 +1,7 @@
 <div class="main-content page-m">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
-            
+
             <form [formGroup]="animalFormGroup" (ngSubmit)="onSubmit()">
 
                 <!-- animal form group -->
@@ -44,6 +44,27 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-md-2"> <label>Активность животного</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="active" type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Тип животного</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="animalType">
+                                    <option [ngValue]="tempAnimalType" *ngFor="let tempAnimalType of animalTypes">{{
+                                        tempAnimalType.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
