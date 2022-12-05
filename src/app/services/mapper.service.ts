@@ -23,12 +23,6 @@ export class MapperService {
 
   mapAnimalIndicators(animalIndicatorsObject: any): AnimalIndicators {
 
-    // let consciousnessLevelValue;
-    // let bleedingLevelValue;
-    // let mobilityLossLevelValue;
-    // let appetiteLevelValue;
-    // let aggressionLevelValue;
-
     return new AnimalIndicators(animalIndicatorsObject.id,
       animalIndicatorsObject.age,
       animalIndicatorsObject.isInfant,

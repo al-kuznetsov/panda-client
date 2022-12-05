@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AnimalListComponent } from './components/animal-list/animal-list.component';
 
 import localeRu from '@angular/common/locales/ru';
@@ -18,10 +18,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CareCartComponent } from './components/care-cart/care-cart.component';
 import { CareCartDetailsComponent } from './components/care-cart-details/care-cart-details.component';
 import { SimpleErrorModalComponent } from './components/error/modals/simple-error-modal/simple-error-modal.component';
+import { AnimalCriteriaReportComponent } from './components/animal-criteria-report/animal-criteria-report.component';
+import { AnimalFormComponent } from './components/animal-form/animal-form.component';
 
 registerLocaleData(localeRu, 'ru');
 
 const routes: Routes = [ // path match creates a NEW instance of component!
+  { path: 'animal-form', component: AnimalFormComponent },
   { path: 'care-cart-details', component: CareCartDetailsComponent },
   { path: 'animal-details/:id', component: AnimalDetailsComponent },
   { path: 'animal-search/:searchKey', component: AnimalListComponent },
@@ -42,7 +45,9 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     AnimalDetailsComponent,
     CareCartComponent,
     CareCartDetailsComponent,
-    SimpleErrorModalComponent
+    SimpleErrorModalComponent,
+    AnimalCriteriaReportComponent,
+    AnimalFormComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -50,6 +55,7 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'ru' }], // to make pipes take ru locale

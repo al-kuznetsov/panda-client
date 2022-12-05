@@ -1,0 +1,56 @@
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <form [formGroup]="animalFormGroup" (ngSubmit)="onSubmit()">
+
+                <!-- animal form group -->
+                <div formGroupName="animal" class="form-area">
+                    <h3>Животное</h3>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Кличка</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="name" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Дата рождения</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="birthDate" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Краткое описание</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="description" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Подробное описание</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="fullBio" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- submit button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info">Сохранить</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
