@@ -29,26 +29,4 @@ export class UserListComponent implements OnInit {
     )
   }
 
-  public onOpenModal(user: User | null, mode: string): void {
-    // Get a handle to the DOM
-    const container = document.getElementById('main-container');
-    // Greate new element and set its attributes based on user input
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    if (mode === 'create') {
-      button.setAttribute('data-target', '#createUserModal');
-    }
-    if (mode === 'update') {
-      button.setAttribute('data-target', '#updateUserModal');
-    }
-    if (mode === 'delete') {
-      button.setAttribute('data-target', '#deleteUserModal');
-    }
-    // Add the element to the DOM
-    container?.appendChild(button);
-    button.click(); // Call the action to invoke the referenced modal window
-  }
-
 }

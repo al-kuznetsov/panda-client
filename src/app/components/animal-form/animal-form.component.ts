@@ -28,7 +28,7 @@ export class AnimalFormComponent implements OnInit {
 
   // Define method called when submit button is clicked
   onSubmit() {
-    console.log("Handling the submit button");
+    console.log("Handling the submit button on animal-form");
     console.log(this.animalFormGroup.get("animal")?.value);
   }
 

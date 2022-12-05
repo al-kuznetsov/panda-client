@@ -1,15 +1,15 @@
 <div class="main-content page-m">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
-            
-            <form [formGroup]="animalFormGroup" (ngSubmit)="onSubmit()">
 
-                <!-- animal form group -->
-                <div formGroupName="animal" class="form-area">
-                    <h3>Животное</h3>
+            <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+
+                <!-- user form group -->
+                <div formGroupName="user" class="form-area">
+                    <h3>Пользователь</h3>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Кличка</label></div>
+                        <div class="col-md-2"><label>Имя</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
                                 <input formControlName="name" type="text">
@@ -18,32 +18,31 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Дата рождения</label></div>
+                        <div class="col-md-2"><label>Email</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="birthDate" type="text">
+                                <input formControlName="email" type="text">
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Краткое описание</label></div>
+                        <div class="col-md-2"><label>Роль</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="description" type="text">
+                                <input formControlName="jobTitle" type="text">
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Подробное описание</label></div>
+                        <div class="col-md-2"><label>Телефон</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="fullBio" type="text">
+                                <input formControlName="phone" type="text">
                             </div>
                         </div>
                     </div>
-
 
                 </div>
 
@@ -53,6 +52,7 @@
                 </div>
 
             </form>
+
         </div>
     </div>
 </div>

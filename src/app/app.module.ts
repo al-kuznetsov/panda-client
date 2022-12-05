@@ -20,11 +20,13 @@ import { CareCartDetailsComponent } from './components/care-cart-details/care-ca
 import { SimpleErrorModalComponent } from './components/error/modals/simple-error-modal/simple-error-modal.component';
 import { AnimalCriteriaReportComponent } from './components/animal-criteria-report/animal-criteria-report.component';
 import { AnimalFormComponent } from './components/animal-form/animal-form.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 registerLocaleData(localeRu, 'ru');
 
 const routes: Routes = [ // path match creates a NEW instance of component!
   { path: 'animal-form', component: AnimalFormComponent },
+  { path: 'user-form', component: UserFormComponent },
   { path: 'care-cart-details', component: CareCartDetailsComponent },
   { path: 'animal-details/:id', component: AnimalDetailsComponent },
   { path: 'animal-search/:searchKey', component: AnimalListComponent },
@@ -47,7 +49,8 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     CareCartDetailsComponent,
     SimpleErrorModalComponent,
     AnimalCriteriaReportComponent,
-    AnimalFormComponent
+    AnimalFormComponent,
+    UserFormComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
