@@ -10,14 +10,14 @@
                     <th>Описание</th>
                 </tr>
 
-                <tr *ngFor="let tempAnimalItem of animalItems">
+                <tr *ngFor="let tempContainer of animalCriteriaContainers">
                     <td>
-                        <img src="{{ tempAnimalItem.imageUrl }}" class="img-responsive" width="150px" />
+                        <img src="{{ tempContainer.animal.imageUrl }}" class="img-responsive" width="150px" />
                     </td>
-                    <td>{{ tempAnimalItem.name }}</td>
-                    <td>{{ tempAnimalItem.description }}</td>
+                    <td>{{ tempContainer.animal.name }}</td>
+                    <td>{{ tempContainer.animal.description }}</td>
                 </tr>
-              
+
             </table>
 
         </div>

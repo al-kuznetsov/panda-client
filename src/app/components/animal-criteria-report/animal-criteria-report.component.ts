@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimalCriteriaContainer } from 'src/app/common/animal-criteria-container';
 import { AnimalItem } from 'src/app/common/animal-item';
+import { AnimalService } from 'src/app/services/animal.service';
 import { CareCartService } from 'src/app/services/care-cart.service';
 
 @Component({
@@ -10,9 +12,11 @@ import { CareCartService } from 'src/app/services/care-cart.service';
 export class AnimalCriteriaReportComponent implements OnInit {
 
   animalItems: AnimalItem[] = [];
+  animalCriteriaContainers: AnimalCriteriaContainer[] = [];
   totalQuantity: number = 0;
 
-  constructor(private careCartService: CareCartService) { }
+  constructor(private careCartService: CareCartService,
+    private animalService: AnimalService) { }
 
   ngOnInit(): void {
 
@@ -22,12 +26,21 @@ export class AnimalCriteriaReportComponent implements OnInit {
   buildAnimalCriteriaReport() {
 
     this.animalItems = this.careCartService.animalItems;
+    const animalIds: number[] = [];
 
-    // TODO Retrieve a list of animal criteria container from backend
-    // and use them to populate this component view
+    this.animalItems.forEach(tempAnimalItem => animalIds.push(tempAnimalItem.id));
+
+    // Получить расчеты глобальных критериев и наполнить отображение.
+    this.listAnimalCriteriaContainers(animalIds);
 
     this.careCartService.totalQuantity.subscribe(
       totalQuantity => this.totalQuantity = totalQuantity)
+  }
+
+  listAnimalCriteriaContainers(animalIds: number[]) {
+    this.animalService.getAnimalCriteriaContainers(animalIds).subscribe(
+      data => this.animalCriteriaContainers = data
+    )
   }
 
 }

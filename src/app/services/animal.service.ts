@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Animal } from '../common/animal';
+import { AnimalCriteriaContainer } from '../common/animal-criteria-container';
 import { AnimalType } from '../common/animal-type';
 
 @Injectable({
@@ -49,6 +50,19 @@ export class AnimalService {
     const requestUrl: string = `${this.animalsRequestUrl}/${theAnimalid}`;
 
     return this.httpClient.get<Animal>(requestUrl);
+  }
+
+  /**
+   * Запросить список контейнеров с информацией о расчете глобальных критериев для 
+   * переданного списка идентификаторов животных.
+   * @param theIds список идентификаторов животных
+   * @returns массив контейнеров с расчетом глобальных критериев
+   */
+  getAnimalCriteriaContainers(theIds: number[]): Observable<AnimalCriteriaContainer[]> {
+
+    const requestUrl: string = `${this.animalsRequestUrl}/calculateCriteriaVector`;
+
+    return this.httpClient.post<AnimalCriteriaContainer[]>(requestUrl, theIds);
   }
 
   private getAnimals(requestUrl: string): Observable<GetResponseAnimals> {

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Animal } from '../common/animal';
+import { AnimalCriteriaContainer } from '../common/animal-criteria-container';
 import { AnimalIndicators } from '../common/animal-indicators';
+import { AnimalIndicatorsNumeric } from '../common/animal-indicators-numeric';
 import { AnimalItem } from '../common/animal-item';
 import { AnimalType } from '../common/animal-type';
 
@@ -42,6 +44,27 @@ export class MapperService {
     )
   }
 
+  mapAnimalIndicatorsNumeric(animalIndicatorsNumericObject: any): AnimalIndicatorsNumeric {
+
+    return new AnimalIndicatorsNumeric(animalIndicatorsNumericObject.id,
+      animalIndicatorsNumericObject.age,
+      animalIndicatorsNumericObject.isInfant,
+      animalIndicatorsNumericObject.consciousnessLevel,
+      animalIndicatorsNumericObject.height,
+      animalIndicatorsNumericObject.breathingRate,
+      animalIndicatorsNumericObject.heartRate,
+      animalIndicatorsNumericObject.bleedingLevel,
+      animalIndicatorsNumericObject.bodyTemperature,
+      animalIndicatorsNumericObject.severeDamageCount,
+      animalIndicatorsNumericObject.mildDamageCount,
+      animalIndicatorsNumericObject.mobilityLossLevel,
+      animalIndicatorsNumericObject.appetiteLevel,
+      animalIndicatorsNumericObject.hasSymptoms,
+      animalIndicatorsNumericObject.isPregnant,
+      animalIndicatorsNumericObject.aggressionLevel
+    )
+  }
+
   mapAnimal(animalObject: any): Animal {
 
     return new Animal(animalObject.id,
@@ -74,5 +97,18 @@ export class MapperService {
     );
 
     return new AnimalItem(animal);
+  }
+
+  mapAnimalCriteriaContainer(anyAnimalCriteriaContainerObject: any): AnimalCriteriaContainer {
+    return new AnimalCriteriaContainer(
+      anyAnimalCriteriaContainerObject.animal,
+      this.mapAnimalIndicatorsNumeric(
+        anyAnimalCriteriaContainerObject.animalIndicatorsNumericPreNormalize),
+      this.mapAnimalIndicatorsNumeric(
+        anyAnimalCriteriaContainerObject.animalIndicatorsNumericPostNormalize),
+      this.mapAnimalIndicatorsNumeric(
+        anyAnimalCriteriaContainerObject.animalIndicatorsNumericPostWeighing),
+      anyAnimalCriteriaContainerObject.criteria
+    )
   }
 }
