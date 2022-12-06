@@ -25,7 +25,11 @@ export class AnimalItem {
         this.imageUrl = animal.imageUrl!;
         this.dateCreated = animal.dateCreated!;
         this.dateUpdated = animal.dateUpdated!;
-        this.animalIndicators = animal.animalIndicators!;
+        if (animal.animalIndicators === undefined) {
+            this.animalIndicators = {} as AnimalIndicators
+        } else {
+            this.animalIndicators = animal.animalIndicators;
+        }
 
         this.animalTypeName = animal.animalType?.name!;
 

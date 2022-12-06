@@ -31,7 +31,7 @@ export class AnimalDetailsComponent implements OnInit {
 
     this.animalService.getAnimal(theAnimalId).subscribe(
       data => {
-        this.animalItem = new AnimalItem(data);
+        this.animalItem = this.mapperService.mapAnimalItem(data);
       }
     )
   }
