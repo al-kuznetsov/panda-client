@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Animal } from 'src/app/common/animal';
 import { AnimalCriteriaContainer } from 'src/app/common/animal-criteria-container';
 import { AnimalItem } from 'src/app/common/animal-item';
 import { AnimalService } from 'src/app/services/animal.service';
@@ -13,6 +14,7 @@ export class AnimalCriteriaReportComponent implements OnInit {
 
   animalItems: AnimalItem[] = [];
   animalCriteriaContainers: AnimalCriteriaContainer[] = [];
+  theRecommendedAnimal: Animal = new Animal();
   totalQuantity: number = 0;
 
   constructor(private careCartService: CareCartService,
@@ -39,8 +41,15 @@ export class AnimalCriteriaReportComponent implements OnInit {
 
   listAnimalCriteriaContainers(animalIds: number[]) {
     this.animalService.getAnimalCriteriaContainers(animalIds).subscribe(
-      data => this.animalCriteriaContainers = data
+      this.processResult()
     )
+  }
+
+  private processResult() {
+    return (data: any) => {
+      this.animalCriteriaContainers = data;
+      this.theRecommendedAnimal = this.animalCriteriaContainers[0].animal;
+    }
   }
 
 }

@@ -814,6 +814,17 @@ a.primary-btn:hover{
 
 /* 
  * ----------------------------
+ * Report section
+ * ----------------------------
+ */
+.report-container {
+    overflow-x: auto;
+    /*white-space: nowrap;*/
+}
+
+
+/* 
+ * ----------------------------
  * Footer section
  * ----------------------------
  */

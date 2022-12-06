@@ -1,25 +1,178 @@
 <div class="main-content">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
-            <h3>Отчет по оценке состояния животных</h3>
+            <div class="report-container">
+                <h3 class="mb-3">Отчет по оценке состояния животных</h3>
 
-            <table class="table table-bordered">
-                <tr>
-                    <th>Фото</th>
-                    <th>Имя</th>
-                    <th>Описание</th>
-                </tr>
+                <h4>1. Числовые значения индикаторов до нормализации</h4>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Возраст</th>
+                        <th>Младенчество</th>
+                        <th>Сознание</th>
+                        <th>Размер (высота в холке)</th>
+                        <th>Частота дыхания</th>
+                        <th>Частота сердцебиений (ЧС)</th>
+                        <th>Кровотечение</th>
+                        <th>Температура тела</th>
+                        <th>Сильные повреждения</th>
+                        <th>Слабые повреждения</th>
+                        <th>Мобильность</th>
+                        <th>Аппетит</th>
+                        <th>Признаки заболеваний</th>
+                        <th>Беременность</th>
+                        <th>Агрессия</th>
+                        <th>Глобальный критерий</th>
+                    </tr>
 
-                <tr *ngFor="let tempContainer of animalCriteriaContainers">
-                    <td>
-                        <img src="{{ tempContainer.animal.imageUrl }}" class="img-responsive" width="150px" />
-                    </td>
-                    <td>{{ tempContainer.animal.name }}</td>
-                    <td>{{ tempContainer.animal.description }}</td>
-                </tr>
+                    <tr *ngFor="let tempContainer of animalCriteriaContainers">
+                        <td>
+                            <a routerLink="/animal-details/{{ tempContainer.animal.id }}">
+                                {{ tempContainer.animal.id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a routerLink="/animal-details/{{ tempContainer.animal.id }}">
+                                {{ tempContainer.animal.name }}
+                            </a>
+                        </td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.age | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.isInfant | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.consciousnessLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.height | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.breathingRate | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.heartRate | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.bleedingLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.bodyTemperature | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.severeDamageCount | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.mildDamageCount | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.mobilityLossLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.appetiteLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.hasSymptoms | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.isPregnant | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPreNormalize.aggressionLevel | number }}</td>
+                        <td>0.000</td>
+                    </tr>
 
-            </table>
+                </table>
 
+                <h4>2. Числовые значения индикаторов после нормализации</h4>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Возраст</th>
+                        <th>Младенчество</th>
+                        <th>Сознание</th>
+                        <th>Размер (высота в холке)</th>
+                        <th>Частота дыхания</th>
+                        <th>Частота сердцебиений (ЧС)</th>
+                        <th>Кровотечение</th>
+                        <th>Температура тела</th>
+                        <th>Сильные повреждения</th>
+                        <th>Слабые повреждения</th>
+                        <th>Мобильность</th>
+                        <th>Аппетит</th>
+                        <th>Признаки заболеваний</th>
+                        <th>Беременность</th>
+                        <th>Агрессия</th>
+                        <th>Глобальный критерий</th>
+                    </tr>
+
+                    <tr *ngFor="let tempContainer of animalCriteriaContainers">
+                        <td>
+                            <a routerLink="/animal-details/{{ tempContainer.animal.id }}">
+                                {{ tempContainer.animal.id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a routerLink="/animal-details/{{ tempContainer.animal.id }}">
+                                {{ tempContainer.animal.name }}
+                            </a>
+                        </td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.age | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.isInfant | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.consciousnessLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.height | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.breathingRate | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.heartRate | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.bleedingLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.bodyTemperature | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.severeDamageCount | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.mildDamageCount | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.mobilityLossLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.appetiteLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.hasSymptoms | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.isPregnant | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostNormalize.aggressionLevel | number }}</td>
+                        <td>0.000</td>
+                    </tr>
+
+                </table>
+
+                <h4>3. Числовые значения индикаторов после нормализации</h4>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Возраст</th>
+                        <th>Младенчество</th>
+                        <th>Сознание</th>
+                        <th>Размер (высота в холке)</th>
+                        <th>Частота дыхания</th>
+                        <th>Частота сердцебиений (ЧС)</th>
+                        <th>Кровотечение</th>
+                        <th>Температура тела</th>
+                        <th>Сильные повреждения</th>
+                        <th>Слабые повреждения</th>
+                        <th>Мобильность</th>
+                        <th>Аппетит</th>
+                        <th>Признаки заболеваний</th>
+                        <th>Беременность</th>
+                        <th>Агрессия</th>
+                        <th>Глобальный критерий</th>
+                    </tr>
+
+                    <tr *ngFor="let tempContainer of animalCriteriaContainers">
+                        <td>
+                            <a routerLink="/animal-details/{{ tempContainer.animal.id }}">
+                                {{ tempContainer.animal.id }}
+                            </a>
+                        </td>
+                        <td>
+                            <a routerLink="/animal-details/{{ tempContainer.animal.id }}">
+                                {{ tempContainer.animal.name }}
+                            </a>
+                        </td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.age | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.isInfant | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.consciousnessLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.height | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.breathingRate | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.heartRate | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.bleedingLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.bodyTemperature | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.severeDamageCount | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.mildDamageCount | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.mobilityLossLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.appetiteLevel | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.hasSymptoms | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.isPregnant | number }}</td>
+                        <td>{{ tempContainer.animalIndicatorsNumericPostWeighing.aggressionLevel | number }}</td>
+                        <td>{{ tempContainer.criteria | number }}</td>
+                    </tr>
+
+                </table>
+
+                <h4>4. По итогам оценки в приоритетном оказании помощи нуждается: 
+                    <a routerLink="/animal-details/{{ theRecommendedAnimal.id }}">
+                        {{ theRecommendedAnimal.id }} {{ theRecommendedAnimal.name }}
+                    </a>
+                </h4>
+
+            </div>
         </div>
     </div>
 </div>
