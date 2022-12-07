@@ -22,21 +22,52 @@
 
                     <h4>Индикаторы состояния</h4>
                     <ul>
-                        <li>Возраст: {{ animalItem.animalIndicators.age }} месяцев</li>
-                        <li>Младенчество: {{ animalItem.animalIndicators.isInfant }}</li>
-                        <li>Сознание: {{ animalItem.animalIndicators.consciousnessLevel }}</li>
-                        <li>Размер (высота в холке): {{ animalItem.animalIndicators.height | number: '1.2-2'}} см.</li>
-                        <li>Частота дыхания: {{ animalItem.animalIndicators.breathingRate }} вдохов в минуту</li>
-                        <li>Частота сердцебиений (ЧС): {{ animalItem.animalIndicators.heartRate }} ударов в минуту</li>
-                        <li>Кровотечение: {{ animalItem.animalIndicators.bleedingLevel }}</li>
-                        <li>Температура тела: {{ animalItem.animalIndicators.bodyTemperature | number: '1.1-1' }} градусов Цельсия</li>
-                        <li>Сильные повреждения: {{ animalItem.animalIndicators.severeDamageCount }}</li>
-                        <li>Слабые повреждения: {{ animalItem.animalIndicators.mildDamageCount }}</li>
-                        <li>Мобильность: {{ animalItem.animalIndicators.mobilityLossLevel }}</li>
-                        <li>Аппетит: {{ animalItem.animalIndicators.appetiteLevel }}</li>
-                        <li>Признаки заболеваний: {{ animalItem.animalIndicators.hasSymptoms }}</li>
-                        <li>Беременность: {{ animalItem.animalIndicators.isPregnant }}</li>
-                        <li>Агрессия: {{ animalItem.animalIndicators.aggressionLevel }}</li>
+                        <li>
+                            Возраст: {{ animalItem.animalIndicators.age }} месяцев
+                        </li>
+                        <li>
+                            Младенчество: {{ animalItem.animalIndicators.isInfant }}
+                        </li>
+                        <li>
+                            Сознание: {{ animalItem.animalIndicators.consciousnessLevel | concsiousnessLevelToString }}
+                        </li>
+                        <li>
+                            Размер (высота в холке): {{ animalItem.animalIndicators.height | number: '1.2-2'}} см.
+                        </li>
+                        <li>
+                            Частота дыхания: {{ animalItem.animalIndicators.breathingRate }} вдохов в минуту
+                        </li>
+                        <li>
+                            Частота сердцебиений (ЧС): {{ animalItem.animalIndicators.heartRate }} ударов в минуту
+                        </li>
+                        <li>
+                            Кровотечение: {{ animalItem.animalIndicators.bleedingLevel | bleedingLevelToString }}
+                        </li>
+                        <li>
+                            Температура тела: {{ animalItem.animalIndicators.bodyTemperature | number: '1.1-1' }}
+                            градусов Цельсия
+                        </li>
+                        <li>
+                            Сильные повреждения: {{ animalItem.animalIndicators.severeDamageCount }}
+                        </li>
+                        <li>
+                            Слабые повреждения: {{ animalItem.animalIndicators.mildDamageCount }}
+                        </li>
+                        <li>
+                            Мобильность: {{ animalItem.animalIndicators.mobilityLossLevel | mobilityLossLevelToString }}
+                        </li>
+                        <li>
+                            Аппетит: {{ animalItem.animalIndicators.appetiteLevel | appetiteLevelToString}}
+                        </li>
+                        <li>
+                            Признаки заболеваний: {{ animalItem.animalIndicators.hasSymptoms }}
+                        </li>
+                        <li>
+                            Беременность: {{ animalItem.animalIndicators.isPregnant }}
+                        </li>
+                        <li>
+                            Агрессия: {{ animalItem.animalIndicators.aggressionLevel | aggressionLevelToString }}
+                        </li>
                     </ul>
 
                     <a routerLink="/animals" routerLinkActive="active-link">

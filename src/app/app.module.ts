@@ -21,6 +21,11 @@ import { SimpleErrorModalComponent } from './components/error/modals/simple-erro
 import { AnimalCriteriaReportComponent } from './components/animal-criteria-report/animal-criteria-report.component';
 import { AnimalFormComponent } from './components/animal-form/animal-form.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { AggressionLevelToStringPipe } from './pipes/aggression-level-to-string.pipe';
+import { AppetiteLevelToStringPipe } from './pipes/appetite-level-to-string.pipe';
+import { BleedingLevelToStringPipe } from './pipes/bleeding-level-to-string.pipe';
+import { ConcsiousnessLevelToStringPipe } from './pipes/concsiousness-level-to-string.pipe';
+import { MobilityLossLevelToStringPipe } from './pipes/mobility-loss-level-to-string.pipe';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -51,7 +56,12 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     SimpleErrorModalComponent,
     AnimalCriteriaReportComponent,
     AnimalFormComponent,
-    UserFormComponent
+    UserFormComponent,
+    AggressionLevelToStringPipe,
+    AppetiteLevelToStringPipe,
+    BleedingLevelToStringPipe,
+    ConcsiousnessLevelToStringPipe,
+    MobilityLossLevelToStringPipe
   ],
   imports: [
     RouterModule.forRoot(routes),
