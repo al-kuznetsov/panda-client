@@ -9,8 +9,8 @@
                     <h3>Животное</h3>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Кличка</label></div>
-                        <div class="col-md-9">
+                        <div class="col-md-4"> <label>Кличка</label></div>
+                        <div class="col-md-8">
                             <div class="input-space">
                                 <input formControlName="name" type="text">
                             </div>
@@ -18,8 +18,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Дата рождения</label></div>
-                        <div class="col-md-9">
+                        <div class="col-md-4"> <label>Дата рождения</label></div>
+                        <div class="col-md-8">
                             <div class="input-space">
                                 <input formControlName="birthDate" type="date" [max]="getTodayString()">
                             </div>
@@ -27,8 +27,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Краткое описание</label></div>
-                        <div class="col-md-9">
+                        <div class="col-md-4"> <label>Краткое описание</label></div>
+                        <div class="col-md-8">
                             <div class="input-space">
                                 <input formControlName="description" type="text">
                             </div>
@@ -36,8 +36,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Подробное описание</label></div>
-                        <div class="col-md-9">
+                        <div class="col-md-4"> <label>Подробное описание</label></div>
+                        <div class="col-md-8">
                             <div class="input-space">
                                 <input formControlName="fullBio" type="text">
                             </div>
@@ -45,21 +45,206 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Активность животного</label></div>
-                        <div class="col-md-9">
+                        <div class="col-md-4"> <label>Активность животного</label></div>
+                        <div class="col-md-8">
                             <div class="input-space">
-                                <input formControlName="active" type="checkbox">
+                                <input class="form-checkbox" formControlName="active" type="checkbox">
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2"> <label>Тип животного</label></div>
-                        <div class="col-md-9">
+                        <div class="col-md-4"> <label>Тип животного</label></div>
+                        <div class="col-md-8">
                             <div class="input-space">
                                 <select formControlName="animalType">
                                     <option [ngValue]="tempAnimalType" *ngFor="let tempAnimalType of animalTypes">{{
                                         tempAnimalType.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Возраст</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input formControlName="age" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Младенчество</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input class="form-checkbox" formControlName="isInfant" type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Сознание</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <select formControlName="consciousnessLevel">
+                                    <option [ngValue]="concsiousnessLevelEnum.CONSCIOUS">
+                                        В сознании
+                                    </option>
+                                    <option [ngValue]="concsiousnessLevelEnum.DEPRESSED">
+                                        Спутанное сознание
+                                    </option>
+                                    <option [ngValue]="concsiousnessLevelEnum.UNCONSCIOUS">
+                                        Без сознания
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Размер (высота в холке в см)</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input formControlName="height" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Частота дыхания (вдохов в минуту)</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input formControlName="breathingRate" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Частота сердцебиений (ударов в минуту)</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input formControlName="heartRate" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Кровотечение</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <select formControlName="bleedingLevel">
+                                    <option [ngValue]="bleedingLevelEnum.HEAVY">
+                                        Сильное
+                                    </option>
+                                    <option [ngValue]="bleedingLevelEnum.LIGHT">
+                                        Легкое
+                                    </option>
+                                    <option [ngValue]="bleedingLevelEnum.NO">
+                                        Нет
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Температура тела в градусах Цельсия</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input formControlName="bodyTemperature" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label> Сильные повреждения</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input formControlName="severeDamageCount" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Слабые повреждения</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input formControlName="mildDamageCount" type="number">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Мобильность</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <select formControlName="mobilityLossLevel">
+                                    <option [ngValue]="mobilityLevelEnum.COMPLETELY_LOST">
+                                        Потеряна полностью
+                                    </option>
+                                    <option [ngValue]="mobilityLevelEnum.PARTIALLY_LOST">
+                                        Потеряна частично
+                                    </option>
+                                    <option [ngValue]="mobilityLevelEnum.NO">
+                                        Сохранена
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Аппетит</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <select formControlName="appetiteLevel">
+                                    <option [ngValue]="appetiteLevelEnum.GOOD">
+                                        Хороший
+                                    </option>
+                                    <option [ngValue]="appetiteLevelEnum.POOR">
+                                        Плохой
+                                    </option>
+                                    <option [ngValue]="appetiteLevelEnum.NO">
+                                        Нет
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Признаки заболеваний</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input class="form-checkbox" formControlName="hasSymptoms" type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Беременность</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <input class="form-checkbox" formControlName="isPregnant" type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4"> <label>Агрессия</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <select formControlName="aggressionLevel">
+                                    <option [ngValue]="aggressionLevelEnum.NO">
+                                        Нет
+                                    </option>
+                                    <option [ngValue]="aggressionLevelEnum.AVERAGE">
+                                        Есть признаки агрессии или стресса
+                                    </option>
+                                    <option [ngValue]="aggressionLevelEnum.AGGRESSIVE">
+                                        Имеется
                                     </option>
                                 </select>
                             </div>

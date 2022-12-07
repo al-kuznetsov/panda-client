@@ -814,7 +814,7 @@ a.primary-btn:hover{
 
 /* 
  * ----------------------------
- * Report section
+ * Report view
  * ----------------------------
  */
 .report-container {
@@ -822,6 +822,14 @@ a.primary-btn:hover{
     /*white-space: nowrap;*/
 }
 
+/* 
+ * ----------------------------
+ * Form view
+ * ----------------------------
+ */
+input.form-checkbox {
+    transform: scale(1.5);
+}
 
 /* 
  * ----------------------------
