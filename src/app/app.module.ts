@@ -26,6 +26,7 @@ import { AppetiteLevelToStringPipe } from './pipes/appetite-level-to-string.pipe
 import { BleedingLevelToStringPipe } from './pipes/bleeding-level-to-string.pipe';
 import { ConcsiousnessLevelToStringPipe } from './pipes/concsiousness-level-to-string.pipe';
 import { MobilityLossLevelToStringPipe } from './pipes/mobility-loss-level-to-string.pipe';
+import { BooleanToYesNoStringPipe } from './pipes/boolean-to-yes-no-string.pipe';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -61,7 +62,8 @@ const routes: Routes = [ // path match creates a NEW instance of component!
     AppetiteLevelToStringPipe,
     BleedingLevelToStringPipe,
     ConcsiousnessLevelToStringPipe,
-    MobilityLossLevelToStringPipe
+    MobilityLossLevelToStringPipe,
+    BooleanToYesNoStringPipe
   ],
   imports: [
     RouterModule.forRoot(routes),

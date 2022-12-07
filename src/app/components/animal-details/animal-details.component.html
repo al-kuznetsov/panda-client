@@ -26,7 +26,7 @@
                             Возраст: {{ animalItem.animalIndicators.age }} месяцев
                         </li>
                         <li>
-                            Младенчество: {{ animalItem.animalIndicators.isInfant }}
+                            Младенчество: {{ animalItem.animalIndicators.isInfant | booleanToYesNoString }}
                         </li>
                         <li>
                             Сознание: {{ animalItem.animalIndicators.consciousnessLevel | concsiousnessLevelToString }}
@@ -60,10 +60,10 @@
                             Аппетит: {{ animalItem.animalIndicators.appetiteLevel | appetiteLevelToString}}
                         </li>
                         <li>
-                            Признаки заболеваний: {{ animalItem.animalIndicators.hasSymptoms }}
+                            Признаки заболеваний: {{ animalItem.animalIndicators.hasSymptoms | booleanToYesNoString }}
                         </li>
                         <li>
-                            Беременность: {{ animalItem.animalIndicators.isPregnant }}
+                            Беременность: {{ animalItem.animalIndicators.isPregnant | booleanToYesNoString }}
                         </li>
                         <li>
                             Агрессия: {{ animalItem.animalIndicators.aggressionLevel | aggressionLevelToString }}
