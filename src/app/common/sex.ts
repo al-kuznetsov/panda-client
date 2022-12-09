@@ -4,7 +4,7 @@ export class Sex {
         public id: number,
         public code: string,
         public name: string,
-        public description: string,
-        public imageUrl: string
+        public description?: string,
+        public imageUrl?: string
     ) { }
 }

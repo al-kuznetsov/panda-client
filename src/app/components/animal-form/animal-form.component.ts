@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AnimalType } from 'src/app/common/animal-type';
+import { Sex } from 'src/app/common/sex';
 import { AggressionLevel } from 'src/app/enums/aggression-level';
 import { AppetiteLevel } from 'src/app/enums/appetite-level';
 import { BleedingLevel } from 'src/app/enums/bleeding-level';
@@ -18,6 +19,7 @@ export class AnimalFormComponent implements OnInit, AfterViewInit {
 
   animalFormGroup!: FormGroup;
   animalTypes: AnimalType[] = [];
+  sexes: Sex[] = [];
 
   concsiousnessLevelEnum = ConcsiousnessLevel;
   bleedingLevelEnum = BleedingLevel;
@@ -35,11 +37,13 @@ export class AnimalFormComponent implements OnInit, AfterViewInit {
 
     // Get data for drop-down lists
     this.listAnimalTypes();
+    this.listSexes();
 
     // Use the form builder to build the form
     this.animalFormGroup = this.formBuilder.group({
       animal: this.formBuilder.group({
         name: [''],
+        sex: [new Sex(999, "MALE", "Самец")],
         birthDate: [Date.now()],
         description: [''],
         fullBio: [''],
@@ -65,7 +69,7 @@ export class AnimalFormComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // TODO: fix it
+    // TODO: fix getting default values for this form including animal type and sex
     const defaultAnimalType: AnimalType = this.animalTypes[0];
     console.log(`defaultAnimalType in animal-form is: ${defaultAnimalType}`)
     this.animalFormGroup.get("animal")?.get("animalType")?.setValue(defaultAnimalType);
@@ -75,6 +79,14 @@ export class AnimalFormComponent implements OnInit, AfterViewInit {
     this.animalService.getAnimalTypes().subscribe(
       data => {
         this.animalTypes = data;
+      }
+    )
+  }
+
+  listSexes() {
+    this.animalService.getSexes().subscribe(
+      data => {
+        this.sexes = data;
       }
     )
   }

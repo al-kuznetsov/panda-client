@@ -7,6 +7,7 @@ export const environment = {
   apiBaseUrl: 'http://localhost:8080/api/v1',
   animalsMappingUrl: '/animals',
   animalTypesMappingUrl: '/animal-types',
+  sexesMappingUrl: '/sexes',
   maxNumberOfAnimalItemsInCareCart: 5
 };
 

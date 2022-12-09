@@ -18,6 +18,19 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-md-4"> <label>Пол животного</label></div>
+                        <div class="col-md-8">
+                            <div class="input-space">
+                                <select formControlName="sex">
+                                    <option [ngValue]="tempSex" *ngFor="let tempSex of sexes">{{
+                                        tempSex.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-md-4"> <label>Дата рождения</label></div>
                         <div class="col-md-8">
                             <div class="input-space">

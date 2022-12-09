@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Animal } from '../common/animal';
 import { AnimalCriteriaContainer } from '../common/animal-criteria-container';
 import { AnimalType } from '../common/animal-type';
+import { Sex } from '../common/sex';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AnimalService {
 
   private animalsRequestUrl: string = `${environment.apiBaseUrl}${environment.animalsMappingUrl}`;
   private animalTypesRequestUrl: string = `${environment.apiBaseUrl}${environment.animalTypesMappingUrl}`;
+  private sexesRequestUrl: string = `${environment.apiBaseUrl}${environment.sexesMappingUrl}`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -44,6 +46,13 @@ export class AnimalService {
       `${this.animalTypesRequestUrl}`;
 
     return this.httpClient.get<AnimalType[]>(requestUrl);
+  }
+
+  getSexes(): Observable<Sex[]> {
+    const requestUrl: string =
+      `${this.sexesRequestUrl}`;
+
+    return this.httpClient.get<Sex[]>(requestUrl);
   }
 
   getAnimal(theAnimalid: number): Observable<Animal> {
