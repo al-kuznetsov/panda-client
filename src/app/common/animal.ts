@@ -1,5 +1,6 @@
 import { AnimalIndicators } from "./animal-indicators";
 import { AnimalType } from "./animal-type";
+import { Sex } from "./sex";
 
 export class Animal {
 
@@ -14,6 +15,7 @@ export class Animal {
         public dateCreated?: Date,
         public dateUpdated?: Date,
         public animalType?: AnimalType,
+        public sex?: Sex,
         public animalIndicators?: AnimalIndicators
     ) { }
 }

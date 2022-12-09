@@ -7,10 +7,12 @@
                     <img src="{{ animalItem.imageUrl }}" class="img-responsive" width="200px">
 
                     <h3>{{ animalItem.name }}</h3>
-                    <button class="btn btn-primary btn-sm" [disabled]="animalItem.isAddToCartButtonDisabled"
+                    <button class="btn btn-primary btn-sm mb-2" [disabled]="animalItem.isAddToCartButtonDisabled"
                         (click)="addToCareCart(animalItem)">
                         Добавить себе
                     </button>
+
+                    <p>{{ animalItem.animalTypeName }}, {{ animalItem.sexName }}</p>
 
                     <h4>Краткое описание</h4>
                     <p>{{ animalItem.description }}

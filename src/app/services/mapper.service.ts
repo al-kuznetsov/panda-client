@@ -5,6 +5,7 @@ import { AnimalIndicators } from '../common/animal-indicators';
 import { AnimalIndicatorsNumeric } from '../common/animal-indicators-numeric';
 import { AnimalItem } from '../common/animal-item';
 import { AnimalType } from '../common/animal-type';
+import { Sex } from '../common/sex';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,16 @@ export class MapperService {
       animalTypeObject.name,
       animalTypeObject.description,
       animalTypeObject.imageUrl
+    );
+  }
+
+  mapSex(sexObject: any): Sex {
+
+    return new Sex(sexObject.id,
+      sexObject.code,
+      sexObject.name,
+      sexObject.description,
+      sexObject.imageUrl
     );
   }
 
@@ -77,6 +88,7 @@ export class MapperService {
       animalObject.dateCreated,
       animalObject.dateUpdated,
       this.mapAnimalType(animalObject.type),
+      this.mapSex(animalObject.sex),
       this.mapAnimalIndicators(animalObject.indicators)
     );
   }
@@ -93,6 +105,7 @@ export class MapperService {
       animalObject.dateCreated,
       animalObject.dateUpdated,
       this.mapAnimalType(animalObject.type),
+      this.mapSex(animalObject.sex),
       this.mapAnimalIndicators(animalObject.indicators)
     );
 

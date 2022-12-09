@@ -13,6 +13,7 @@ export class AnimalItem {
     animalIndicators: AnimalIndicators;
 
     animalTypeName: string;
+    sexName: string;
 
     criteria: number;
     isAddToCartButtonDisabled: boolean;
@@ -31,7 +32,16 @@ export class AnimalItem {
             this.animalIndicators = animal.animalIndicators;
         }
 
-        this.animalTypeName = animal.animalType?.name!;
+        if (animal.animalType === null || animal.animalType === undefined) {
+            this.animalTypeName = "";
+        } else {
+            this.animalTypeName = animal.animalType?.name!;
+        }
+        if (animal.sex === null || animal.sex === undefined) {
+            this.sexName = "";
+        } else {
+            this.sexName = animal.sex?.name!;
+        }
 
         this.criteria = 0;
         this.isAddToCartButtonDisabled = false;
