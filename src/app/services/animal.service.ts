@@ -78,6 +78,13 @@ export class AnimalService {
     return this.httpClient.post<Animal>(this.animalsRequestUrl, animal);
   }
 
+  deleteAnimal(id: number): Observable<any> {
+    
+    const requestUrl = `${this.animalsRequestUrl}/${id}`;
+
+    return this.httpClient.delete<any>(requestUrl);
+  }
+
   private getAnimals(requestUrl: string): Observable<GetResponseAnimals> {
     return this.httpClient.get<GetResponseAnimals>(requestUrl).pipe(
       map(response => response)
