@@ -74,6 +74,10 @@ export class AnimalService {
     return this.httpClient.post<AnimalCriteriaContainer[]>(requestUrl, theIds);
   }
 
+  createAnimal(animal: Animal): Observable<any> {
+    return this.httpClient.post<Animal>(this.animalsRequestUrl, animal);
+  }
+
   private getAnimals(requestUrl: string): Observable<GetResponseAnimals> {
     return this.httpClient.get<GetResponseAnimals>(requestUrl).pipe(
       map(response => response)

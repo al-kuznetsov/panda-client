@@ -14,8 +14,8 @@ export class Animal {
         public active?: boolean,
         public dateCreated?: Date,
         public dateUpdated?: Date,
-        public animalType?: AnimalType,
+        public type?: AnimalType,
         public sex?: Sex,
-        public animalIndicators?: AnimalIndicators
+        public indicators?: AnimalIndicators
     ) { }
 }

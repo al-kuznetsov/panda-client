@@ -102,13 +102,13 @@
                         <div class="col-md-8">
                             <div class="input-space">
                                 <select formControlName="consciousnessLevel">
-                                    <option [ngValue]="concsiousnessLevelEnum.CONSCIOUS">
+                                    <option [ngValue]="concsiousnessLevelEnum[concsiousnessLevelEnum.CONSCIOUS]">
                                         В сознании
                                     </option>
-                                    <option [ngValue]="concsiousnessLevelEnum.DEPRESSED">
+                                    <option [ngValue]="concsiousnessLevelEnum[concsiousnessLevelEnum.DEPRESSED]">
                                         Спутанное сознание
                                     </option>
-                                    <option [ngValue]="concsiousnessLevelEnum.UNCONSCIOUS">
+                                    <option [ngValue]="concsiousnessLevelEnum[concsiousnessLevelEnum.UNCONSCIOUS]">
                                         Без сознания
                                     </option>
                                 </select>
@@ -148,13 +148,13 @@
                         <div class="col-md-8">
                             <div class="input-space">
                                 <select formControlName="bleedingLevel">
-                                    <option [ngValue]="bleedingLevelEnum.HEAVY">
+                                    <option [ngValue]="bleedingLevelEnum[bleedingLevelEnum.HEAVY]">
                                         Сильное
                                     </option>
-                                    <option [ngValue]="bleedingLevelEnum.LIGHT">
+                                    <option [ngValue]="bleedingLevelEnum[bleedingLevelEnum.LIGHT]">
                                         Легкое
                                     </option>
-                                    <option [ngValue]="bleedingLevelEnum.NO">
+                                    <option [ngValue]="bleedingLevelEnum[bleedingLevelEnum.NO]">
                                         Нет
                                     </option>
                                 </select>
@@ -194,13 +194,13 @@
                         <div class="col-md-8">
                             <div class="input-space">
                                 <select formControlName="mobilityLossLevel">
-                                    <option [ngValue]="mobilityLevelEnum.COMPLETELY_LOST">
+                                    <option [ngValue]="mobilityLevelEnum[mobilityLevelEnum.COMPLETELY_LOST]">
                                         Потеряна полностью
                                     </option>
-                                    <option [ngValue]="mobilityLevelEnum.PARTIALLY_LOST">
+                                    <option [ngValue]="mobilityLevelEnum[mobilityLevelEnum.PARTIALLY_LOST]">
                                         Потеряна частично
                                     </option>
-                                    <option [ngValue]="mobilityLevelEnum.NO">
+                                    <option [ngValue]="mobilityLevelEnum[mobilityLevelEnum.NO]">
                                         Сохранена
                                     </option>
                                 </select>
@@ -213,13 +213,13 @@
                         <div class="col-md-8">
                             <div class="input-space">
                                 <select formControlName="appetiteLevel">
-                                    <option [ngValue]="appetiteLevelEnum.GOOD">
+                                    <option [ngValue]="appetiteLevelEnum[appetiteLevelEnum.GOOD]">
                                         Хороший
                                     </option>
-                                    <option [ngValue]="appetiteLevelEnum.POOR">
+                                    <option [ngValue]="appetiteLevelEnum[appetiteLevelEnum.POOR]">
                                         Плохой
                                     </option>
-                                    <option [ngValue]="appetiteLevelEnum.NO">
+                                    <option [ngValue]="appetiteLevelEnum[appetiteLevelEnum.NO]">
                                         Нет
                                     </option>
                                 </select>
@@ -250,13 +250,13 @@
                         <div class="col-md-8">
                             <div class="input-space">
                                 <select formControlName="aggressionLevel">
-                                    <option [ngValue]="aggressionLevelEnum.NO">
+                                    <option [ngValue]="aggressionLevelEnum[aggressionLevelEnum.NO]">
                                         Нет
                                     </option>
-                                    <option [ngValue]="aggressionLevelEnum.AVERAGE">
+                                    <option [ngValue]="aggressionLevelEnum[aggressionLevelEnum.AVERAGE]">
                                         Есть признаки агрессии или стресса
                                     </option>
-                                    <option [ngValue]="aggressionLevelEnum.AGGRESSIVE">
+                                    <option [ngValue]="aggressionLevelEnum[aggressionLevelEnum.AGGRESSIVE]">
                                         Имеется
                                     </option>
                                 </select>

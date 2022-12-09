@@ -26,16 +26,16 @@ export class AnimalItem {
         this.imageUrl = animal.imageUrl!;
         this.dateCreated = animal.dateCreated!;
         this.dateUpdated = animal.dateUpdated!;
-        if (animal.animalIndicators === undefined) {
+        if (animal.indicators === undefined) {
             this.animalIndicators = {} as AnimalIndicators
         } else {
-            this.animalIndicators = animal.animalIndicators;
+            this.animalIndicators = animal.indicators;
         }
 
-        if (animal.animalType === null || animal.animalType === undefined) {
+        if (animal.type === null || animal.type === undefined) {
             this.animalTypeName = "";
         } else {
-            this.animalTypeName = animal.animalType?.name!;
+            this.animalTypeName = animal.type?.name!;
         }
         if (animal.sex === null || animal.sex === undefined) {
             this.sexName = "";

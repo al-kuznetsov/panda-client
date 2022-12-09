@@ -28,10 +28,10 @@
                             Возраст: {{ animalItem.animalIndicators.age }} месяцев
                         </li>
                         <li>
-                            Младенчество: {{ animalItem.animalIndicators.isInfant | booleanToYesNoString }}
+                            Младенчество: {{ animalItem.animalIndicators.isInfant! | booleanToYesNoString }}
                         </li>
                         <li>
-                            Сознание: {{ animalItem.animalIndicators.consciousnessLevel | concsiousnessLevelToString }}
+                            Сознание: {{ animalItem.animalIndicators.consciousnessLevel! | concsiousnessLevelToString }}
                         </li>
                         <li>
                             Размер (высота в холке): {{ animalItem.animalIndicators.height | number: '1.2-2'}} см.
@@ -43,7 +43,7 @@
                             Частота сердцебиений (ЧС): {{ animalItem.animalIndicators.heartRate }} ударов в минуту
                         </li>
                         <li>
-                            Кровотечение: {{ animalItem.animalIndicators.bleedingLevel | bleedingLevelToString }}
+                            Кровотечение: {{ animalItem.animalIndicators.bleedingLevel! | bleedingLevelToString }}
                         </li>
                         <li>
                             Температура тела: {{ animalItem.animalIndicators.bodyTemperature | number: '1.1-1' }}
@@ -56,19 +56,19 @@
                             Слабые повреждения: {{ animalItem.animalIndicators.mildDamageCount }}
                         </li>
                         <li>
-                            Мобильность: {{ animalItem.animalIndicators.mobilityLossLevel | mobilityLossLevelToString }}
+                            Мобильность: {{ animalItem.animalIndicators.mobilityLossLevel! | mobilityLossLevelToString }}
                         </li>
                         <li>
-                            Аппетит: {{ animalItem.animalIndicators.appetiteLevel | appetiteLevelToString}}
+                            Аппетит: {{ animalItem.animalIndicators.appetiteLevel! | appetiteLevelToString}}
                         </li>
                         <li>
-                            Признаки заболеваний: {{ animalItem.animalIndicators.hasSymptoms | booleanToYesNoString }}
+                            Признаки заболеваний: {{ animalItem.animalIndicators.hasSymptoms! | booleanToYesNoString }}
                         </li>
                         <li>
-                            Беременность: {{ animalItem.animalIndicators.isPregnant | booleanToYesNoString }}
+                            Беременность: {{ animalItem.animalIndicators.isPregnant! | booleanToYesNoString }}
                         </li>
                         <li>
-                            Агрессия: {{ animalItem.animalIndicators.aggressionLevel | aggressionLevelToString }}
+                            Агрессия: {{ animalItem.animalIndicators.aggressionLevel! | aggressionLevelToString }}
                         </li>
                     </ul>
 
